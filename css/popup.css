@@ -1,0 +1,338 @@
+/* Popups */
+.popup {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    visibility: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    -webkit-transition: all 0.4s linear;
+
+    -o-transition: all 0.4s linear;
+
+    transition: all 0.4s linear;
+}
+
+.popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__body {
+    min-height: 100%;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    padding: 30px 10px;
+
+    cursor: pointer;
+}
+
+.popup__content {
+    width: 100%;
+    max-width: 966px;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    max-width: 1020px;
+    padding: 4rem 1rem 2.7rem;
+    margin: 0 auto;
+
+    background: #fcfcfe;
+    -webkit-box-shadow: 0px 4px 4px rgba(3, 18, 99, 0.25);
+    box-shadow: 0px 4px 4px rgba(3, 18, 99, 0.25);
+
+    cursor: default;
+    opacity: 0;
+
+    -webkit-transform: translateY(100%);
+
+    -ms-transform: translateY(100%);
+
+    transform: translateY(100%);
+
+    -webkit-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+
+    position: relative;
+}
+
+@media (max-width: 400px) {
+    .popup__content {
+        padding: 40px 15px;
+    }
+}
+
+.popup.open .popup__content {
+    opacity: 1;
+
+    -webkit-transform: translateY(0);
+
+    -ms-transform: translateY(0);
+
+    transform: translateY(0);
+}
+
+.popup__title {
+    margin-bottom: 2.3rem;
+
+    text-align: center;
+}
+
+.popup__title--blue {
+    color: rgba(34, 63, 219, 0.7);
+}
+
+.popup__text {
+    max-width: 613px;
+    margin-bottom: 4.5rem;
+
+    font-size: 1.63rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.popup__speaker {
+    max-width: 540px;
+    width: 100%;
+    min-height: 100%;
+
+    padding: 2.4rem 3.7rem;
+
+    background: #ffffff;
+    cursor: default;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+
+    -webkit-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.popup.open .popup__speaker {
+    opacity: 1;
+
+    -webkit-transform: translateX(0);
+
+    -ms-transform: translateX(0);
+
+    transform: translateX(0);
+}
+
+.popup__img {
+    width: 100%;
+    margin-bottom: 2.22rem;
+}
+
+.popup__name {
+    font-size: 1.36rem;
+}
+.popup__speaker-text {
+    max-width: 320px;
+    width: 100%;
+
+    font-size: 1.09rem;
+}
+
+@media (max-width: 440px) {
+    .popup__speaker-text {
+        font-size: 0.9rem;
+    }
+}
+
+.popup__close {
+    width: 30px;
+    height: 30px;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    background: transparent;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 9999;
+}
+
+.popup__close-line {
+    width: 24px;
+    height: 2px;
+
+    font-size: 0;
+    color: transparent;
+
+    background: #000;
+    border-radius: 2px;
+
+    position: relative;
+
+    -webkit-transform: rotate(45deg);
+
+    -ms-transform: rotate(45deg);
+
+    transform: rotate(45deg);
+
+    -webkit-transition: all 0.3s linear;
+
+    -o-transition: all 0.3s linear;
+
+    transition: all 0.3s linear;
+}
+
+.popup__close-line::after {
+    content: "";
+
+    width: 100%;
+    height: 100%;
+
+    background: #000;
+    border-radius: 2px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    -webkit-transform: rotate(90deg);
+
+    -ms-transform: rotate(90deg);
+
+    transform: rotate(90deg);
+
+    -webkit-transition: all 0.3s linear;
+
+    -o-transition: all 0.3s linear;
+
+    transition: all 0.3s linear;
+}
+
+.popup__close:hover .popup__close-line,
+.popup__close:hover .popup__close-line::after {
+    background: rgba(22, 40, 132, 0.7);
+}
+
+
+
+.btn, .btn-sm {
+    display: inline-block;
+    padding: 5px 30px;
+    font-family: "Jost", sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #ffffff;
+    background: rgba(34, 63, 219, 0.7);
+    -webkit-box-shadow: 0px 2px 5px rgba(3, 18, 99, 0.75);
+    box-shadow: 0px 2px 5px rgba(3, 18, 99, 0.75);
+    cursor: pointer;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.form__btn {
+    margin-top: 4.27em;
+}
+
+.btn {
+    min-width: 250px;
+    font-size: 1.45rem;
+}
+
+.form__input--textarea {
+    min-height: 230px;
+    resize: none;
+}
+.form__input {
+min-width: 100%;
+margin-bottom: 2rem;
+padding: 0.5rem 1rem;
+margin-bottom: 1rem;
+font-weight: 500;
+font-size: 1.09rem;
+color: #a2aac5;
+border: 2px solid #a2aac5;
+-webkit-transition: all 0.3s linear;
+-o-transition: all 0.3s linear;
+transition: all 0.3s linear;
+}
+input, button, textarea {
+font-family: inherit;
+}
+
+
+.form {
+    max-width: 805px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.popup__title {
+    margin-bottom: 2.3rem;
+    text-align: center;
+    color: #070707;
+    font-size: 36px;
+    font-family: "Exo 2";
+    line-height: 110%;
+}
+.title {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+
