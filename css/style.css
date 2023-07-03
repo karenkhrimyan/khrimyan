@@ -814,6 +814,10 @@ line-height: 157%;
   margin-bottom: 10px;
 }
 
+
+
+
+
 .about__title {
   color: #fff;
 
@@ -1022,6 +1026,8 @@ line-height: 157%;
   padding-top: 21px;
     padding-bottom: 20px;
 }
+
+
 @media (max-width: 1200px) {
   .contact__button {
     margin-left: 0;
@@ -1086,6 +1092,7 @@ line-height: 157%;
   }
   .about__img-foto {
     margin-bottom: 20px;
+    
   }
 
   .about__img {
@@ -1594,4 +1601,9 @@ line-height: 157%;
     }
   }
 }
+}
+
+
+.about__img-foto{
+  border-radius:20px;
 }
