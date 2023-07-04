@@ -118,91 +118,99 @@ document.addEventListener("click", (e) => {
     );
 });
 
-let faq = document.querySelector('.faq');
+// let faq = document.querySelector(".faq");
 
-faq.addEventListener('click', function (e) {
-  if (e.target.classList.contains('ask')) {
-    toogleItem(e.target)
-    e.target.classList.toggle('open');
-  }
-});
+// faq.addEventListener("click", function (e) {
+//   if (e.target.classList.contains("ask")) {
+//     toogleItem(e.target);
+//     e.target.classList.toggle("open");
+//   }
+// });
 
-function toogleItem(ask) {
-  let answer = ask.parentNode.querySelector('.answer');
+// function toogleItem(ask) {
+//   let answer = ask.parentNode.querySelector(".answer");
 
-  simpleAnimate(
-    answer,
-    30,
-    [
-      { opacity: 0, height: 0 },
-      { opacity: 1, height: function (el) { return el.clientHeight + 'px' } }
-    ],
-    [
-      { opacity: 1, height: function (el) { return el.clientHeight + 'px' } },
-      { opacity: 0, height: 0 }
-    ]
-  );
-}
+//   simpleAnimate(
+//     answer,
+//     30,
+//     [
+//       { opacity: 0, height: 0 },
+//       {
+//         opacity: 1,
+//         height: function (el) {
+//           return el.clientHeight + "px";
+//         },
+//       },
+//     ],
+//     [
+//       {
+//         opacity: 1,
+//         height: function (el) {
+//           return el.clientHeight + "px";
+//         },
+//       },
+//       { opacity: 0, height: 0 },
+//     ]
+//   );
+// }
 
-function simpleAnimate(el, rate, keyframesToShow, keyframesToHide = null) {
-	if (el.jsAnim) {
-		return;
-	}
+// function simpleAnimate(el, rate, keyframesToShow, keyframesToHide = null) {
+//   if (el.jsAnim) {
+//     return;
+//   }
 
-	el.jsAnim = true;
+//   el.jsAnim = true;
 
-	if (keyframesToHide === null) {
-		keyframesToHide = [...keyframesToShow].reverse();
-	}
+//   if (keyframesToHide === null) {
+//     keyframesToHide = [...keyframesToShow].reverse();
+//   }
 
-  el.closest('.faq').querySelectorAll('.item').forEach(i => {
-    const answer = i.querySelector('.answer')
-    if (answer !== el) {
-      answer.classList.remove('open')
-      i.querySelector('.ask').classList.remove('open')
-    }
-  })
+//   el.closest(".faq")
+//     .querySelectorAll(".item")
+//     .forEach((i) => {
+//       const answer = i.querySelector(".answer");
+//       if (answer !== el) {
+//         answer.classList.remove("open");
+//         i.querySelector(".ask").classList.remove("open");
+//       }
+//     });
 
-	if (el.classList.contains('open')) {
-		let animation = el.animate(
-			compileKeyframes(el, keyframesToHide),
-			{ duration: rate }
-		);
+//   if (el.classList.contains("open")) {
+//     let animation = el.animate(compileKeyframes(el, keyframesToHide), {
+//       duration: rate,
+//     });
 
-		animation.addEventListener('finish', function () {
-			el.classList.remove('open');
-			el.jsAnim = false;
-		});
-	}
-	else {
-		el.classList.add('open');
+//     animation.addEventListener("finish", function () {
+//       el.classList.remove("open");
+//       el.jsAnim = false;
+//     });
+//   } else {
+//     el.classList.add("open");
 
-		let animation = el.animate(
-			compileKeyframes(el, keyframesToShow),
-			{ duration: rate }
-		);
+//     let animation = el.animate(compileKeyframes(el, keyframesToShow), {
+//       duration: rate,
+//     });
 
-		animation.addEventListener('finish', function () {
-			el.jsAnim = false;
-		});
-	}
-}
+//     animation.addEventListener("finish", function () {
+//       el.jsAnim = false;
+//     });
+//   }
+// }
 
-function compileKeyframes(el, keyframes) {
-	let res = [];
+// function compileKeyframes(el, keyframes) {
+//   let res = [];
 
-	for (let i = 0; i < keyframes.length; i++) {
-		let frame = keyframes[i];
-		let realFrame = {};
+//   for (let i = 0; i < keyframes.length; i++) {
+//     let frame = keyframes[i];
+//     let realFrame = {};
 
-		for (let name in frame) {
-			realFrame[name] = typeof frame[name] === 'function' ?
-				frame[name](el) :
-				frame[name];
-		}
+//     for (let name in frame) {
+//       realFrame[name] =
+//         typeof frame[name] === "function" ? frame[name](el) : frame[name];
+//     }
 
-		res.push(realFrame);
-	}
+//     res.push(realFrame);
+//   }
 
-	return res;
-}
+//   return res;
+// }
