@@ -564,6 +564,42 @@
             </button>
           </form>
         </div>
+
+
+        <div class="popup" id="question-popup">
+          <div class="popup__body popup-close">
+            <div class="popup__content">
+              <button class="popup__close popup-close">
+                <span class="popup__close-line">close popup</span>
+              </button>
+    
+              <h2 class="popup__title title">Оставляйте свои вопросы ниже</h2>
+    
+              <form class="form" id="form">
+                <input
+                  class="form__input"
+                  id="email"
+                  type="email"
+                  placeholder="Ваш электронный адрес почты"
+                />
+    
+                <textarea
+                  class="form__input form__input--textarea"
+                  id="message"
+                  name="question"
+                  placeholder="Ваш вопрос"
+                ></textarea>
+    
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="form__btn btn popup-link"
+                  data-popup="#thanks-popup"
+                >
+                  Отправить
+                </button>
+              </form>
+            </div>
         <!-- /.registration__form -->
       </div>
     </div>
