@@ -84,19 +84,22 @@ function sendMessage(message) {
   fetch(url).then((res) => console.log(res));
 }
 
-var form = document.querySelector("#form");
-var submit = document.querySelector("#submit-btn");
-submit.addEventListener("click", (e) => {
-  e.preventDefault();
-  1;
-  var email = form.querySelector("#email");
-  var message = form.querySelector("#message");
+var forms = document.querySelectorAll(".tg-form");
 
-  if (email.value === "" || message.value === "") return;
+forms.forEach((form) => {
+  var submit = form.querySelector("#submit-btn");
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    1;
+    var email = form.querySelector("#email");
+    var message = form.querySelector("#message");
 
-  var msg = `${email.value}: ${message.value}`;
+    if (email.value === "" || message.value === "") return;
 
-  sendMessage(msg);
+    var msg = `${email.value}: ${message.value}`;
+
+    sendMessage(msg);
+  });
 });
 
 const imageWrappers = document.querySelectorAll(".image-wrapper");
@@ -117,100 +120,3 @@ document.addEventListener("click", (e) => {
         .forEach((o) => o.style.removeProperty("opacity"))
     );
 });
-
-// let faq = document.querySelector(".faq");
-
-// faq.addEventListener("click", function (e) {
-//   if (e.target.classList.contains("ask")) {
-//     toogleItem(e.target);
-//     e.target.classList.toggle("open");
-//   }
-// });
-
-// function toogleItem(ask) {
-//   let answer = ask.parentNode.querySelector(".answer");
-
-//   simpleAnimate(
-//     answer,
-//     30,
-//     [
-//       { opacity: 0, height: 0 },
-//       {
-//         opacity: 1,
-//         height: function (el) {
-//           return el.clientHeight + "px";
-//         },
-//       },
-//     ],
-//     [
-//       {
-//         opacity: 1,
-//         height: function (el) {
-//           return el.clientHeight + "px";
-//         },
-//       },
-//       { opacity: 0, height: 0 },
-//     ]
-//   );
-// }
-
-// function simpleAnimate(el, rate, keyframesToShow, keyframesToHide = null) {
-//   if (el.jsAnim) {
-//     return;
-//   }
-
-//   el.jsAnim = true;
-
-//   if (keyframesToHide === null) {
-//     keyframesToHide = [...keyframesToShow].reverse();
-//   }
-
-//   el.closest(".faq")
-//     .querySelectorAll(".item")
-//     .forEach((i) => {
-//       const answer = i.querySelector(".answer");
-//       if (answer !== el) {
-//         answer.classList.remove("open");
-//         i.querySelector(".ask").classList.remove("open");
-//       }
-//     });
-
-//   if (el.classList.contains("open")) {
-//     let animation = el.animate(compileKeyframes(el, keyframesToHide), {
-//       duration: rate,
-//     });
-
-//     animation.addEventListener("finish", function () {
-//       el.classList.remove("open");
-//       el.jsAnim = false;
-//     });
-//   } else {
-//     el.classList.add("open");
-
-//     let animation = el.animate(compileKeyframes(el, keyframesToShow), {
-//       duration: rate,
-//     });
-
-//     animation.addEventListener("finish", function () {
-//       el.jsAnim = false;
-//     });
-//   }
-// }
-
-// function compileKeyframes(el, keyframes) {
-//   let res = [];
-
-//   for (let i = 0; i < keyframes.length; i++) {
-//     let frame = keyframes[i];
-//     let realFrame = {};
-
-//     for (let name in frame) {
-//       realFrame[name] =
-//         typeof frame[name] === "function" ? frame[name](el) : frame[name];
-//     }
-
-//     res.push(realFrame);
-//   }
-
-//   return res;
-// }
